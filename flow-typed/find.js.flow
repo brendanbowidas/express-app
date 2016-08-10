@@ -1,0 +1,7 @@
+// @flow
+
+export type Meta = {
+  max_results: number,
+  total: number,
+  page: number,
+}

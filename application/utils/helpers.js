@@ -1,7 +1,8 @@
+// @flow
 const atob = require('atob')
 const r = require('rethinkdb')
 
-function decodeToken(token) {
+function decodeToken(token: string) : Object | boolean {
   // Grab btoa string, decode, and separate username and password into variables
   if (token) {
     const authString = token.replace(/Basic/g, '')
@@ -22,7 +23,7 @@ function decodeToken(token) {
  * @param {Function} callback
  * @returns {Object} result with embedded resources
  */
-function parseRelation(schema, result, connection, cb) {
+function parseRelation(schema: Object, result: Object, connection: Object, cb: Function) : void {
   if (schema.data_relations) {
     const relations = schema.data_relations
     let iterations = 0

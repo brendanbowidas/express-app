@@ -1,7 +1,8 @@
+// @flow
 const r = require('rethinkdb')
 const md5 = require('md5')
 /* eslint-disable consistent-return */
-function insert(tableName, data, connection) {
+function insert(tableName: string, data: Array<Object> | Object, connection: Object) : Promise<Object> | void {
   let iterations = 0
   if (!Array.isArray(data)) {
     data = [data]
